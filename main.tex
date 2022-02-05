@@ -1,0 +1,132 @@
+\author{João Gonçalves}
+\newcommand{\authorD}{Daniel Dinis}
+\newcommand{\studentID}{99995}
+\newcommand{\studentIDD}{99906}
+%\newcommand{\supervisorone}{Prof. Margarida Silveira}
+\newcommand{\supervisortwo}{}
+\newcommand{\department}{Engenharia Eletrotécnica e de Computadores}
+\newcommand{\exam}{Sinais e Sistemas}
+
+\title{Relatório Final}
+\date{Dezembro 2021}
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=30mm,top=30mm,right=30mm,bottom=30mm]{geometry}
+\usepackage{etoolbox} %required for cover page
+\usepackage{booktabs}
+\usepackage[usestackEOL]{stackengine}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage[svgnames]{xcolor}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage{enumitem,kantlipsum}
+\usepackage[square,numbers,sort]{natbib}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{amssymb}
+\usepackage{babel}
+\usemintedstyle{emacs}
+%\setlength{\parindent}{0pt}
+
+\renewcommand{\listingscaption}{Algorithm}
+\renewcommand{\listoflistingscaption}{List of Algorithms}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tab.}
+\renewcommand{\contentsname}{Índice}
+
+\bibliographystyle{unsrtnat}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\linespread{1}
+
+\newtheorem{theorem}{Theorem}[section]
+\graphicspath{{figures/}}	
+
+%----------------------------------TITLE PAGE -----------------------------------
+\makeatletter
+\def\maketitle{
+  \begin{center}\leavevmode
+       \normalfont
+       \includegraphics[width=0.55\columnwidth]{IST.pdf}
+       \vskip 1.5cm   
+       \textsc{\large \department}\\
+       \vskip 1.5cm
+       \rule{\linewidth}{0.2 mm} %\\
+       {\large \exam}\\[1 cm]
+       {\huge \bfseries \@title \par}
+       \vspace{1cm}
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	 
+	\begin{minipage}[t]{0.45\textwidth}
+		\begin{flushleft} \large
+			\emph{Autores:}\\
+            \textbf{\authorD}\\
+            Student ID: \studentIDD\\
+			\textbf{\@author}\\
+			Student ID: \studentID
+		\end{flushleft}
+	\end{minipage}
+	\begin{minipage}[t]{0.45\textwidth}
+	   \begin{flushright} \large
+			%\ifdefempty{\supervisortwo}{\emph{Supervisora:\\}}{\emph{Supervisores:\\}}
+			%\supervisorone\\
+			%\ifdefempty{\supervisortwo}{}{\supervisortwo\\}
+		\end{flushright}
+	\end{minipage}
+	\vfill
+	{\Large \@date\par}
+   \end{center}
+   %\vfill
+   %\null
+   \cleardoublepage
+  }
+\makeatother
+
+%-------------------------------- ENDTITLE PAGE ----------------------------------
+
+\begin{document}
+
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+%\listoffigures
+%\newpage
+%\listoftables
+%\newpage
+%\listofalgorithms % List of algorithms in pseudocode format
+%\newpage
+%\listoflistings % List of algorithms in code format
+%\newpage
+
+\pagenumbering{arabic}% Arabic page numbers (and reset to 1)
+
+\input{sections/questoes}
+
+\clearpage
+\nocite{SS}
+\bibliography{bibliography}
+
+\clearpage
+\appendix
+\input{sections/appendix}
+
+\end{document}
